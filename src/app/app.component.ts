@@ -5,5 +5,12 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'angular-performance-improvements';
+  text: string;
+  items: {label: string, value: number}[] = [];
+
+  addTextToList() {
+    const randomValue =  Math.floor(Math.random() * 10) + 1;
+    this.items.push({ label: this.text, value: randomValue });
+    this.items = JSON.parse(JSON.stringify(this.items));
+  }
 }

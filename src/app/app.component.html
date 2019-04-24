@@ -1,1 +1,2 @@
-<app-sample-list></app-sample-list>
+<input type="text" [(ngModel)]="text" (keydown.enter)="addTextToList()">
+<app-sample-list [items]="items"></app-sample-list>

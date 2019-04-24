@@ -1,18 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-sample-list',
-  templateUrl: './sample-list.component.html'
+  templateUrl: './sample-list.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SampleListComponent {
 
-  text: string;
+  @Input()
   items: {label: string, value: number}[] = [];
-
-  addTextToList() {
-    const randomValue =  Math.floor(Math.random() * 10) + 1;
-    this.items.push({ label: this.text, value: randomValue });
-  }
 
   generateValue(value: number) {
     console.log('value ' + value + ' generated');
