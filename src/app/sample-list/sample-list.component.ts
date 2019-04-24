@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { List } from 'immutable';
 
 @Component({
   selector: 'app-sample-list',
@@ -8,17 +9,6 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 export class SampleListComponent {
 
   @Input()
-  items: {label: string, value: number}[] = [];
+  items = List<{label: string, value: number}>();
 
-  generateValue(value: number) {
-    console.log('value ' + value + ' generated');
-    return this.fibonacci(value * 4);
-  }
-
-  private fibonacci(num: number): number {
-    if (num === 1 || num === 2) {
-      return 1;
-    }
-    return this.fibonacci(num - 1) + this.fibonacci(num - 2);
-  }
 }

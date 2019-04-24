@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { List } from 'immutable';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   text: string;
-  items: {label: string, value: number}[] = [];
+  items = List<{label: string, value: number}>();
 
   addTextToList() {
     const randomValue =  Math.floor(Math.random() * 10) + 1;
-    this.items.push({ label: this.text, value: randomValue });
-    this.items = JSON.parse(JSON.stringify(this.items));
+    this.items = this.items.unshift({ label: this.text, value: randomValue });
   }
 }
